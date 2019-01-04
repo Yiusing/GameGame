@@ -31,19 +31,36 @@ export default {
     },
     watch:{
         selected(val){
-            //根据选择的item跳转对应路由
-            this.$router.push(val)
-            //保存当前选择的item
-            sessionStorage.setItem('navTabIndex',val)
+            //判断用户是否登录，若未登录则跳转登陆页面
+            if(val=="profile"){
+                if(!this.isLogin){
+                    this.$router.push("register")
+                }else{
+                    this.$router.push("profile")
+                }
+            }else{
+                //根据选择的item跳转对应路由
+                this.$router.push(val)
+                //保存当前选择的item
+                // sessionStorage.setItem('navTabIndex',val)
+            }
+        },
+        $route(to,from){ //跳转组件页面后，监听路由参数中对应的当前页面以及上一个页面
+           this.selected=to.path.slice(1)
+        } 
+    },
+    computed:{
+        isLogin(){
+            return this.$store.getters.getIsLogin;
         }
     },
     created(){
-        var navTabIndex = sessionStorage.getItem('navTabIndex')
-        if(!navTabIndex){
-            this.selected="home"
-        }else{
-            this.selected=navTabIndex
-        }
+        // var navTabIndex = sessionStorage.getItem('navTabIndex')
+        // if(!navTabIndex){
+        //     this.selected="home"
+        // }else{
+        //     this.selected=navTabIndex
+        // }
     }
 }
 </script>

@@ -2,3 +2,13 @@
     margin:0;
     padding:0;
 }
+
+.icon-youjiantou:after{
+    display: inline-block;
+    content:"";
+    width:10px;
+    height:10px;
+    border-bottom:1px solid #000;
+    border-right:1px solid #000;
+    transform:rotate(-45deg)
+}

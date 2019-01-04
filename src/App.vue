@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- 头部 -->
-    <Header></Header>
+    <Header v-show="isShow"></Header>
     <!-- 主体 -->
     <router-view></router-view>
     <!-- 底部导航栏 -->
@@ -27,13 +27,15 @@ export default {
     }
   },
   watch:{
-      /*$route(to,from){ //跳转组件页面后，监听路由参数中对应的当前页面以及上一个页面
+      $route(to,from){ //跳转组件页面后，监听路由参数中对应的当前页面以及上一个页面
           console.log(to)
-        if(to.name=='book'||to.name=='my'){ // to.name来获取当前所显示的页面，从而控制该显示或隐藏footerBar组件
-           this.$store.dispatch('showFooter') // 利用派发全局state.showFooter的值来控制        }else{
-           this.$store.dispatch('hideFooter')
+          //sessionStorage.setItem("navTabIndex",to.path.slice(1))
+        if(to.path.slice(1)=='register' || to.path.slice(1)=='login'){ // to.path来获取当前所显示的页面，从而控制该显示或隐藏footerBar组件
+           this.$store.commit('hideTabbar') // 利用派发全局state.showFooter的值来控制
+        }else{
+           this.$store.commit('showTabbar')
         }
-      }*/
+      } 
   }
 }
 </script>

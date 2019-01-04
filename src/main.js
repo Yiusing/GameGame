@@ -15,11 +15,11 @@ import store from './store'
 import './assets/iconfont/iconfont.css'
 
 //引入mint-ui部分组件
-import { Tabbar,Navbar, TabItem , Swipe , Loadmore ,Lazyload , InfiniteScroll , Spinner , Actionsheet } from 'mint-ui';
+/*import { Tabbar,Navbar, TabItem , Swipe , Loadmore ,Lazyload , InfiniteScroll , Spinner , Actionsheet } from 'mint-ui';
 Vue.component(Navbar.name, Navbar);
 Vue.component(TabItem.name, TabItem);
 Vue.component(Tabbar.name, Tabbar);
-Vue.component(Swipe.name,Swipe);
+//Vue.component(Swipe.name,Swipe);
 Vue.component(Loadmore.name, Loadmore);
 Vue.component(Spinner.name, Spinner);
 Vue.component(Actionsheet.name, Actionsheet);
@@ -28,7 +28,7 @@ Vue.use(InfiniteScroll);
 import { TabContainer, TabContainerItem } from 'mint-ui';
 Vue.component(TabContainer.name, TabContainer);
 Vue.component(TabContainerItem.name, TabContainerItem);
-
+*/
 Vue.config.productionTip = false
 
 //配置axios模块
@@ -37,7 +37,6 @@ axios.defaults.withCredentials=true;
 
 //使用mint-ui ui库
 Vue.use(Mint)
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

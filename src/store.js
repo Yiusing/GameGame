@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    isHideTabbar:true
+    isHideTabbar:true,
+    isLogin:false
   },
   mutations: {
     hideTabbar(state){
@@ -14,6 +15,12 @@ export default new Vuex.Store({
     showTabbar(state){
         state.isHideTabbar=true
     },
+    login(state){
+        state.isLogin=true;
+    },
+    signout(state){
+        state.isLogin=false
+    }
   },
   actions: {
 
@@ -21,6 +28,9 @@ export default new Vuex.Store({
   getters:{
       getIsHideTabbar(state){
           return state.isHideTabbar
+      },
+      getIsLogin(state){
+          return state.isLogin
       }
   }
 })
