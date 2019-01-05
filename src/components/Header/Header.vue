@@ -1,12 +1,15 @@
 <template>
   <div class="header">
-    <h3 class="header-title">GameGame</h3>
-    <span class="mui-icon mui-icon-search"></span>
+    <h3 class="header-title" v-text="data"></h3>
+    <span class="mui-icon" :class="iconType"></span>
   </div>
 </template>
 <script>
 export default {
-    
+    data(){
+        return{}
+    },
+    props:["data","iconType"]
 }
 </script>
 <style scoped>
@@ -17,8 +20,10 @@ export default {
     }
     .header-title{
         color:#fff;
+        font-weight:500;
+        font-size:1.2rem;
     }
-    .mui-icon.mui-icon-search{
+    .mui-icon{
         color:#fff;
         position:absolute;
         right:5%;

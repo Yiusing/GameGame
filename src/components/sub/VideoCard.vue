@@ -11,17 +11,14 @@
                 </div>
             </div>
             <div class="card-option">
-                <span class="iconfont icon-diandiandian" @click="sheetVisible=true"></span>
-                <mt-actionsheet :actions="actions" v-model="sheetVisible"></mt-actionsheet>
-                <p v-text="data.visitedCount+'次浏览'"></p>
+                <p v-text="data.visitedCount+'次播放'"></p>
             </div>
         </div>
-        <div class="mui-card-header mui-card-media" style="height:40vw;" :style="`background-image:url(${data.bgImg})`"></div>
+        <video :src="data.video" class="video" controls="true" preload="metadata"></video>
         <div class="mui-card-content">
             <div class="mui-card-content-inner">
                 <p class="card-content-title ell" v-text="data.title"></p>
                 <p class="card-content-author">来自 <span style="color:#000;" v-text="data.author"></span></p>
-                <p class="card-content-details box-ell" v-text="data.comment"></p>
                 <div class="comment-box">
                     <p class="comment-time">{{data.time}}小时前</p>
                     <div class="comment-more">
@@ -37,8 +34,6 @@
 export default {
     data(){
         return{
-            sheetVisible:false,
-            actions:[{name:"来自编辑推荐"}]
         }
     },
     props:["data"]
@@ -72,7 +67,7 @@ export default {
     text-align: left;
  }
 .card-header .card-option{
-    width:30%;
+    width:35%;
     text-align: right;
 }
 .mui-card-content-inner .card-content-title{
@@ -93,5 +88,10 @@ export default {
 }
 .comment-more .iconfont:before{
     margin-right:5px;
+}
+.video{
+    width:100%;
+    position:relative;
+    z-index: 1;
 }
 </style>

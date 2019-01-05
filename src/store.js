@@ -5,8 +5,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    isHideTabbar:true,
-    isLogin:false
+    isHideTabbar:true,//隐藏底部导航栏
+    isLogin:false,//保存登录状态
+    // tabSelect:"home"//当前
   },
   mutations: {
     hideTabbar(state){
@@ -20,7 +21,8 @@ export default new Vuex.Store({
     },
     signout(state){
         state.isLogin=false
-    }
+    },
+
   },
   actions: {
 

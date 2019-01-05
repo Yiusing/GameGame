@@ -51,7 +51,8 @@ export default {
             classList:["全部","角色扮演","休闲","动作","策略","模拟","益智","街机","冒险","卡牌","体育","竞速","音乐","单机","文字","桌面和棋类"],
             sortList:["默认排序","评分排序","时间排序"],
             sortIndex:0,
-            classIndex:0
+            classIndex:0,
+            sort:false
             
         }
     },
@@ -77,6 +78,9 @@ export default {
                 }
                 this.list = this.list.concat(res.data.data.gameList)
             })
+            if(this.sort){
+                this.sortByScore(1)
+            }
         },
         init(){     //初始化页面
             this.axios.get("http://localhost:3000/gamestore",{
@@ -117,8 +121,25 @@ export default {
             this.classIndex=i;
         },
         sortJump(i){
+            this.hideAll();
             //分类点击更换功能2
             this.sortIndex=i;
+            this.sortByScore(i)
+        },
+        sortByScore(i){
+            //按评分排序
+            if(i==1){
+                this.sort=true;
+                for(var i=0,max=0;i<this.list.length-1;i++){
+                    for(var j=0;j<this.list.length-i-1;j++){
+                        if(this.list[j].item.point<this.list[j+1].item.point){
+                            var swap = this.list[j]
+                            this.list[j]=this.list[j+1];
+                            this.list[j+1]=swap;
+                        }
+                    }
+                }
+            }
         }
     },
     mounted() {
@@ -227,7 +248,7 @@ ul{
 }
 .sort-box .mask{
     width:100%;
-    height:100vh;
+    height:calc(100vh - 107px );
     left:0;
     background:#000;
     position:absolute;

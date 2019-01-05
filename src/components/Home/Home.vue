@@ -53,9 +53,9 @@ export default {
 .mint-navbar .mint-tab-item{
     color:#666666;
 }
-.view{
-    background:#f1f1f1;
+.mint-tab-container{
     padding-bottom:55px;
+    padding-top:4px; 
 }
 
 </style>

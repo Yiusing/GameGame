@@ -133,7 +133,7 @@ export default {
         margin-left:10px;
     }
     .recommend-box{
-        padding-top:4px; 
+       
     }
 </style>
 
